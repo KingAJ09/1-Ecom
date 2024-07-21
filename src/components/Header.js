@@ -67,12 +67,7 @@ const Header = () => {
                 </Link>
               </div>
 
-              <div>
-                <Link to='/Login' className='d-flex align-items-center gap-10 text-white'>
-                  <FaRegUser className='icons' />
-                  <p className='mb-0'>Login<br />User</p>
-                </Link>
-              </div>
+              
 
               <div>
                 <Link to='/Cart' className='d-flex align-items-center gap-10 text-white'>
@@ -83,6 +78,13 @@ const Header = () => {
                     <p className='mb-0'>$ 500</p>
 
                   </div>
+                </Link>
+              </div>
+
+              <div>
+                <Link to='/Login' className='d-flex align-items-center gap-10 text-white'>
+                  <FaRegUser className='icons' />
+                  <p className='mb-0'>Login<br />User</p>
                 </Link>
               </div>
 

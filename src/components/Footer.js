@@ -1,13 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SiGooglenews } from "react-icons/si";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { signOut } from 'firebase/auth';
+import { database } from '../utils/FirebaseConfig';
 
 const Footer = () => {
+
+  const history = useNavigate()
+
+  const handleClick = () =>{
+    signOut(database).then(val=>{
+      console.log(val,"val");
+      history('/')
+    })
+  }
+
   return (
     <>
 
@@ -56,11 +68,11 @@ const Footer = () => {
 
                 <div className="social-icons d-flex align-items-center gap-30 mt-4">
 
-                <a className='text-white' href="."><BsFacebook className='fs-4' /></a>
-                <a className='text-white' href="."><AiFillTwitterCircle className='fs-4' /></a>
-                <a className='text-white' href="."><AiFillInstagram className='fs-4' /></a>
-                <a className='text-white' href="."><FaLinkedin className='fs-4' /></a>
-                <a className='text-white' href="."><FaGithub className='fs-4' /></a>
+                <a className='text-white' href="https://www.facebook.com"><BsFacebook className='fs-4' /></a>
+                <a className='text-white' href="https://www.twitter.com"><AiFillTwitterCircle className='fs-4' /></a>
+                <a className='text-white' href="https://www.instagram.com"><AiFillInstagram className='fs-4' /></a>
+                <a className='text-white' href="https://www.linkedin.com"><FaLinkedin className='fs-4' /></a>
+                <a className='text-white' href="https://www.github.com"><FaGithub className='fs-4' /></a>
 
                 </div>
                 
@@ -89,6 +101,7 @@ const Footer = () => {
                 <Link to='/about' className='text-white py-2 mb-1'>About Us</Link>
                 <Link to='/contact' className='text-white py-2 mb-1'>Faq'</Link>
                 <Link to='/contact' className='text-white py-2 mb-1'>Contact</Link>
+                
               </div>
 
             </div>
@@ -111,6 +124,8 @@ const Footer = () => {
         </div>
 
       </footer>
+
+      <button className='button text-white py-2 mb-1' onClick={handleClick}>Logout</button>
 
       <footer className='py-4'>
 
